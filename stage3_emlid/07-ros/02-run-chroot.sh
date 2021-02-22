@@ -3,7 +3,7 @@
 ROS_RELEASE='noetic'
 DEB_RELEASE='buster'
 
-ROS_PKGS='ros_comm mavlink mavros'
+ROS_PKGS='ros_comm mavlink mavros nodelet cv_bridge tf ddynamic_reconfigure image_transport'
 
 CFG_NAME="${ROS_RELEASE}.rosinstall"
 INSTALL_PATH="/opt/ros/${ROS_RELEASE}"
