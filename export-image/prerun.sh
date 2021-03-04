@@ -42,20 +42,11 @@ ROOT_LENGTH=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 4 | tr -d B)
 ls ${IMG_FILE}
 
 echo "Mounting BOOT_DEV with offset ${BOOT_OFFSET} (length ${BOOT_LENGTH})..."
-cnt=0
 until BOOT_DEV=$(losetup --show -f -o "${BOOT_OFFSET}" --sizelimit "${BOOT_LENGTH}" "${IMG_FILE}"); do
-	if [ $cnt -lt 5 ]; then
-		cnt=$((cnt + 1))
-		echo "Error in losetup for BOOT_DEV.  Retrying..."
-		sleep 5
-	else
-		echo "ERROR: losetup for BOOT_DEV failed; exiting"
-		exit 1
-	fi
+	sleep 5
 done
 
 echo "Mounting ROOT_DEV with offset ${ROOT_OFFSET} (length ${ROOT_LENGTH})..."
-cnt=0
 until ROOT_DEV=$(losetup --show -f -o "${ROOT_OFFSET}" --sizelimit "${ROOT_LENGTH}" "${IMG_FILE}"); do
 	sleep 5
 done

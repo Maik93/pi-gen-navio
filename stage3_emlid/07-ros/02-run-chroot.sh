@@ -43,6 +43,6 @@ bash ./${GEOSET_SCR_NAME}
 
 if ! `cat /etc/bash.bashrc | grep "source ${INSTALL_PATH}/setup.bash"`; then
     echo "source ${INSTALL_PATH}/setup.bash" >> /etc/bash.bashrc
-    echo "if [ -f /home/$USER/.bashrc ]; then source /home/$USER/.bashrc fi" >> /etc/bash.bashrc
+    echo "if [ -f /home/$USER/.bashrc ]; then source /home/$USER/.bashrc; fi" >> /etc/bash.bashrc
 fi
 
